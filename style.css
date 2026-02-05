@@ -4,12 +4,14 @@ body {
     background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
     background-color: #ffdde1;
     background-image: linear-gradient(0deg, #ffdde1 0%, #ee9ca7 100%);
-    height: 100vh;
+    min-height: 100vh;
+    /* Changed from height to min-height for better mobile scrolling */
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Quicksand', sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll, allow vertical if needed */
 }
 
 .container {
@@ -20,6 +22,7 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    /* Width constraints removed for desktop to allow content to fit naturally */
 }
 
 h1 {
@@ -28,6 +31,8 @@ h1 {
     font-size: 3.5rem;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.2;
+    /* Better line spacing for wrapping text */
 }
 
 .buttons {
@@ -37,6 +42,8 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 2rem;
+    flex-wrap: wrap;
+    /* Allow buttons to wrap on very small screens */
 }
 
 button {
@@ -48,6 +55,8 @@ button {
     transition: transform 0.2s, box-shadow 0.2s;
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
+    /* Touch target size optimization */
+    min-width: 120px;
 }
 
 #yesBtn {
@@ -65,6 +74,34 @@ button {
     background-color: #fce4ec;
     color: #e91e63;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        /* Fluid width */
+        max-width: 600px;
+        /* Max width for desktop */
+        box-sizing: border-box;
+        /* Include padding in width calculation */
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .buttons {
+        gap: 1rem;
+        min-height: 80px;
+    }
+
+    button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.2rem;
+    }
 }
 
 /* Animation class for the title */
