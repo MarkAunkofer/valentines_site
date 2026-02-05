@@ -48,6 +48,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     yesBtn.addEventListener('click', () => {
-        window.location.href = 'success.html';
+        // Animation starten
+        for (let i = 0; i < 50; i++) {
+            createHeart();
+        }
+
+        // Verzögerung vor der Weiterleitung, damit man die Animation sieht
+        setTimeout(() => {
+            window.location.href = 'success.html';
+        }, 1500);
     });
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.innerHTML = '❤️';
+        heart.classList.add('heart');
+
+        // Zufällige Position
+        // Wir starten grob in der Mitte oder beim Button, hier einfach zufällig über den Screen verteilt
+        // oder besser: Startposition beim Button wäre cooler, aber random screen ist auch okay "Party Effekt"
+        // Let's make it random across the screen for specific effect requested "viele Herzen ploppen auf"
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+
+        // Zufällige Größe
+        const size = Math.random() * 20 + 20; // 20px bis 40px
+        heart.style.fontSize = `${size}px`;
+
+        // Zufällige Animationsdauer
+        const duration = Math.random() * 0.5 + 1; // 1s bis 1.5s
+        heart.style.animationDuration = `${duration}s`;
+
+        document.body.appendChild(heart);
+
+        // Aufräumen nach der Animation
+        setTimeout(() => {
+            heart.remove();
+        }, duration * 1000);
+    }
 });

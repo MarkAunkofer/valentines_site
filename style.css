@@ -127,3 +127,27 @@ button {
         transform: translateY(-10px);
     }
 }
+
+/* Floating Hearts Animation */
+.heart {
+    position: fixed;
+    font-size: 24px;
+    color: #e91e63;
+    pointer-events: none;
+    /* Nicht klickbar */
+    z-index: 9999;
+    /* Über allem */
+    animation: floatUp 1.5s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px) scale(0);
+        opacity: 0;
+    }
+}
