@@ -1,4 +1,4 @@
-# 💖 Valentinsschatz Website
+# 💖 Valentinstags-Website
 
 Eine kleine, interaktive Webseite zum Valentinstag, um die wichtigste aller Fragen zu stellen: **"Willst du mein Valentinsschatz sein?"**
 
